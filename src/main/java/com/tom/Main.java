@@ -1,6 +1,8 @@
 package com.tom;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,6 +10,7 @@ public class Main {
     public static final int FEE = 30;
 
     public static void main(String[] args) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         List<Car> cars = new ArrayList<>();
         System.out.println("Welcome to Parking lot Management System!");
         int func = 0;
@@ -41,7 +44,8 @@ public class Main {
                     }
                 case 3:
                     for (Car car : cars) {
-                        System.out.println(car.id + "/" + car.enter + "/" + car.leave);
+                        Date date = new Date(car.enter);
+                        System.out.println(car.id + "/" + sdf.format(date) + "/" + car.leave);
                     }
                     break;
             }
