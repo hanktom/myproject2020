@@ -27,6 +27,18 @@ public class Main {
                     cars.add(c);
                     System.out.println("Car added");
                     break;
+                case 2:
+                    System.out.println("Please enter Car ID:");
+                    String leaveId = scanner.nextLine();
+                    for (Car car : cars) {
+                        if (car.id.equals(leaveId)) {
+                            long now = System.currentTimeMillis();
+                            long duration = now - car.enter;
+                            System.out.println(duration + "ms");
+                            System.out.println(duration * FEE);
+                            cars.remove(car);
+                        }
+                    }
                 case 3:
                     for (Car car : cars) {
                         System.out.println(car.id + "/" + car.enter + "/" + car.leave);
